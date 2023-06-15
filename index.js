@@ -1,15 +1,28 @@
 // On importe axios
 const axios = require('axios');
 
+// Url de l'API CoinDesk
 const bitcoinUrl = "https://api.coindesk.com/v1/bpi/currentprice.json";
 
 async function fetchBitcoinPrice() {
-    const response = await axios.get(bitcoinUrl);
+    // Devise reconnu USD/GBP/EUR
+    const currency = process.argv[2] ? process.argv[2].toUpperCase() : 'USD';
 
-    const updated = response.data.time.updated;
-    const currentPrice = response.data.bpi['EUR'].rate;
+    try {
+        const { data } = await axios.get(bitcoinUrl);
+        
+        if(!data.bpi[currency]) {
+            throw new Error('Devise inconnue');
+        };
 
-    console.log(`> 1 BTC = ${currentPrice} EUR (${updated})`);
-}
+        const updated = data.time.updated;
+        const currentPrice = data.bpi[currency].rate;
+
+        console.log(`> 1 BTC = ${currentPrice} ${currency} (${updated})`);
+
+    } catch (err){
+        console.log(err.toString())
+    }
+};
 
 fetchBitcoinPrice();
