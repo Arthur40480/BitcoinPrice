@@ -1,0 +1,12 @@
+{
+  "name": "cours-bitcoin",
+  "version": "1.0.0",
+  "description": "Projet qui permet d'obtenir le cours du bitcoin en temps réel dans plusieurs devise",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cls && nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arthur",
+  "license": "ISC"
+}
