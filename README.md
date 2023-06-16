@@ -37,9 +37,9 @@ L'application effectuera une requête API pour récupérer le cours actuel du Bi
 
 L'application prend en charge la conversion vers les devises suivantes :
 
-USD (Dollar américain)
-EUR (Euro)
-GBP (Livre sterling)
+1. USD (Dollar américain)
+2. EUR (Euro)
+3. GBP (Livre sterling)
 
 ## API utilisée
 
